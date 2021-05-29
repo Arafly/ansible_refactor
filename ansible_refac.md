@@ -12,9 +12,29 @@ First, let's make some changes to our Jenkins job - before now, every new change
 
 - Change permissions to this directory, so Jenkins could save files there 
 
-`chmod -R 0777 /home/ubuntu/ansible-config-artifact`
+`chmod -R 0777 /home/ubuntu/ansible-artifact`
 
 - Go to Jenkins web console -> Manage Jenkins -> Manage Plugins -> on Available tab search for Copy Artifact and install this plugin without restarting Jenkins
 - Create a new Freestyle projecct and name it 'save_artifacts' - This project will be triggered by completion of your existing ansible project. 
 Configure it accordingly:
+
+*image build_retention
+
+> The goal of the "save_artifacts" project is to save artifacts into `/home/ubuntu/ansible-artifact` directory. In order to achieve this:
+- we need to create a Build step and choose Copy artifacts from other project, specify "ansible as a source project" and /home/ubuntu/ansible-artifact as a target directory.
+
+*mage copy_arti
+
+- Test your set up by making some change in README.MD file inside your *automate-everything *repository (right inside master branch).
+
+If both Jenkins jobs have completed one after another - you shall see your files inside /home/ubuntu/ansible-artifact directory and it will be updated with every commit to your master branch.
+
+*image upstream
+*image downstream
+*image downstream_deet
+
+
+## Refactor Ansible code by importing other playbooks into site.yml
+
+
 

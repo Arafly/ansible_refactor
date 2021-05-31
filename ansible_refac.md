@@ -347,7 +347,7 @@ You should be able to see both of your UAT Web servers configured and you can tr
 
 `http://<Web1-UAT-Server-Public-IP-or-Public-DNS-Name>/index.php`
 
-*image index.php
+![](https://github.com/Arafly/ansible_refactor/blob/master/assets/index.png)
 
 Your Ansible architecture now looks like this:
 

@@ -285,5 +285,49 @@ It is time to start adding some logic to the webserver role. Go into tasks direc
 
 ### Reference the ‘Webserver’ role
 
+Within the `static-assignments` folder, create a new assignment for uat-webservers `uat-webservers.yml`. This is where you will reference the role.
+
+```
+---
+- hosts: uat-webservers
+  roles:
+     - webserver
+```
+
+Remember that the entry point to our ansible configuration is the site.yml file. Therefore, we need to refer your uat-webservers.yml role inside `site.yml`.
+
+So, we should have this in site.yml
+
+```
+---
+- hosts: all
+- import_playbook: ../static-assignments/common.yml
+
+- hosts: uat-webservers
+- import_playbook: ../static-assignments/uat-webservers.yml
+```
+
+### Commit & Test
+
+- Commit your changes, create a Pull Request and merge them to master branch. Ensure the webhook triggers two consequent Jenkins jobs, they ran successfully and copied all the files to your Jenkins-Ansible server into `/home/ubuntu/ansible-artifact/` directory.
+
+Now run the playbook against your uat inventory and see what happens:
+
+`ansible-playbook -i /home/araflyayinde/ansible-artifact/inventory/uat /home/araflyayinde/ansible-artifact/playbooks/site.yml`
+
+You should be able to see both of your UAT Web servers configured and you can try to reach them from your browser:
+
+`http://<Web1-UAT-Server-Public-IP-or-Public-DNS-Name>/index.php`
+
+or
+
+`http://<Web1-UAT-Server-Public-IP-or-Public-DNS-Name>/index.php`
+
+Your Ansible architecture now looks like this:
+
+*image project12
+
+### Congratulations!
+You've just learnt how to deploy and configure UAT Web Servers using Ansible imports and roles!
 
 

@@ -315,17 +315,43 @@ Now run the playbook against your uat inventory and see what happens:
 
 `ansible-playbook -i /home/araflyayinde/ansible-artifact/inventory/uat /home/araflyayinde/ansible-artifact/playbooks/site.yml`
 
+```
+PLAY [uat_webservers] *********************************************************************************************************************************************************
+TASK [Gathering Facts] ********************************************************************************************************************************************************
+ok: [uat-2]
+ok: [uat-1]
+TASK [webserver : install apache] *********************************************************************************************************************************************
+changed: [uat-1]
+changed: [uat-2]
+TASK [webserver : install git] ************************************************************************************************************************************************
+changed: [uat-2]
+changed: [uat-1]
+TASK [webserver : clone a repo] ***********************************************************************************************************************************************
+changed: [uat-2]
+changed: [uat-1]
+TASK [webserver : copy html content to one level up] **************************************************************************************************************************
+changed: [uat-2]
+changed: [uat-1]
+TASK [webserver : Start service httpd, if not started] ************************************************************************************************************************
+changed: [uat-2]
+changed: [uat-1]
+TASK [webserver : recursively remove /var/www/html/html/ directory] ***********************************************************************************************************
+changed: [uat-2]
+changed: [uat-1]
+PLAY RECAP ********************************************************************************************************************************************************************
+uat-1                      : ok=8    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+uat-2                      : ok=8    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+```
+
 You should be able to see both of your UAT Web servers configured and you can try to reach them from your browser:
 
 `http://<Web1-UAT-Server-Public-IP-or-Public-DNS-Name>/index.php`
 
-or
-
-`http://<Web1-UAT-Server-Public-IP-or-Public-DNS-Name>/index.php`
+*image index.php
 
 Your Ansible architecture now looks like this:
 
-*image project12
+![](https://github.com/Arafly/ansible_refactor/blob/master/assets/project12_architecture.png)
 
 ### Congratulations!
 You've just learnt how to deploy and configure UAT Web Servers using Ansible imports and roles!

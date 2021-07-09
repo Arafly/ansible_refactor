@@ -1,8 +1,11 @@
+[webservers]
+Dev_webserver1 ansible_host=35.224.2.163 ansible_ssh_user='araflyayinde'
+
 [tooling]
 <Tooling-Web-Server-Private-IP-Address>
 
 [todo]
-<Todo-Web-Server-Private-IP-Address>
+<Todo-Web-Server-Private-IP> 
 
 [nginx]
 <Nginx-Private-IP-Address>

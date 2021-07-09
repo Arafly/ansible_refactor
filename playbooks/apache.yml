@@ -1,6 +1,6 @@
 ---
-- hosts: webservers 
-  become: True
+- hosts: webservers
+  become: true
   tasks:
     - name: Install packages
       apt:
@@ -14,5 +14,4 @@
     - name: Deploy static website
       copy:
         src: index.html
-        dest: /var/www/html/
-
+        dest: /var/www/html/index.html

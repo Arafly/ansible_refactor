@@ -13,7 +13,7 @@
         enabled: true
     - name: Deploy static website
       copy:
-        src: ~/ansible/index.html
+        src: index.html
         dest: /var/www/html/
         owner: root
         group: root

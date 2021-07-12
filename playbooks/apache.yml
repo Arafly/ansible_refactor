@@ -10,8 +10,11 @@
       service:
         name: apache2
         state: started
-        enabled: True
+        enabled: true
     - name: Deploy static website
       copy:
-        src: index.html
-        dest: /var/www/html/index.html
+        src: ~/ansible/index.html
+        dest: /var/www/html/
+        owner: root
+        group: root
+        mode: 0644

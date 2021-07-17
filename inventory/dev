@@ -1,18 +1,2 @@
 [webservers]
-Dev_webserver ansible_host=35.189.89.177 ansible_user='araflyayinde'
-
-[tooling]
-<Tooling-Web-Server-Private-IP-Address>
-
-[todo]
-<Todo-Web-Server-Private-IP> 
-
-[nginx]
-<Nginx-Private-IP-Address>
-
-[db:vars]
-ansible_user=ec2-user
-ansible_python_interpreter=/usr/bin/python
-
-[db]
-<DB-Server-Private-IP-Address>
+Dev_webserver ansible_host=34.142.16.181 ansible_user='araflyayinde'

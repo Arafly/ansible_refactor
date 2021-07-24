@@ -1,0 +1,2 @@
+[webservers]
+Dev_webserver ansible_host=34.142.16.181 ansible_user='araflyayinde'

@@ -1,0 +1,18 @@
+---
+- hosts: webservers
+  become: true
+  tasks:
+    - name: Install packages
+      apt:
+        name: apache2
+	update_cache: yes
+        state: "present"
+    - name: Start Apache server
+      service:
+        name: apache2
+        state: started
+        enabled: True
+    - name: Deploy static website
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
